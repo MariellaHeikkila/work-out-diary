@@ -9,8 +9,6 @@ export default function Settings(){
 
     const { units, setUnits } = useContext(UnitsContext)
 
-    
-
     return(
         <View style={styles.container}>
             <Text>Choose preferred units</Text>

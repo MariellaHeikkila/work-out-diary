@@ -5,7 +5,7 @@ import Add from './components/Add';
 import ListWorkOuts from './components/ListWorkOuts';
 import Settings from './components/Settings';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { AddWorkOut, UnitsContext } from './components/Context';
+import { AddWorkOutContext, UnitsContext } from './components/Context';
 
 export default function App() {
 
@@ -15,11 +15,11 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <UnitsContext.Provider value={{units, setUnits}}>
-        <AddWorkOut.Provider value={{workOut, setWorkOut}}>
+        <AddWorkOutContext.Provider value={{workOut, setWorkOut}}>
           <PaperProvider theme={MD3LightTheme}>
             <BottomNav/>
           </PaperProvider>
-        </AddWorkOut.Provider>
+        </AddWorkOutContext.Provider>
       </UnitsContext.Provider>
     </SafeAreaProvider>    
   );
