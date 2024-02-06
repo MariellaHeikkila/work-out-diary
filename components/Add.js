@@ -18,12 +18,11 @@ export default function Add(){
     const { units } = useContext(UnitsContext) 
     const { setWorkOut } = useContext(AddWorkOutContext)
 
-    //let chosenUnit = units ? units : 'km'
     let datePicked = date ? date?.dateString : 'Select date'
     let distanceLabel = 'distance (' + units + ')'
 
+    //for distance and duration, some checkups for input values
     function handleDistanceInput() {
-
         const numericDis = parseFloat(distance)
         if (numericDis < 0 || isNaN(numericDis)) {
             Alert.alert('Value can´t be negative or empty')
@@ -32,7 +31,6 @@ export default function Add(){
     }
     
     function handleDurationInput() {
-
         const numericDur = parseFloat(duration)
         if (numericDur < 0 || isNaN(numericDur)) {
             Alert.alert('Value can´t be negative or empty')
@@ -40,11 +38,15 @@ export default function Add(){
         }
     }
 
+    //select date from calendar
     function dateSelected(day) {
         setVisible(false)
         setDate(day)
     }
 
+    //add work out button 
+    //convert units to km if miles, 
+    //empty inputs and informs that workout is added to list
     function addWorkOut(){
 
         const distanceInKm = units === 'mi' ? distance * 1.6 : distance
@@ -92,6 +94,7 @@ export default function Add(){
                 />
                 <TextInput 
                 style={styles.textInput}
+                mode='outlined'
                 label={'duration (min)'} 
                 value={duration} 
                 onChangeText={setDuration}
