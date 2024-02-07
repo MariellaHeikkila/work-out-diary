@@ -21,23 +21,6 @@ export default function Add(){
     let datePicked = date ? date?.dateString : 'Select date'
     let distanceLabel = 'distance (' + units + ')'
 
-    //for distance and duration, some checkups for input values
-    function handleDistanceInput() {
-        const numericDis = parseFloat(distance)
-        if (numericDis < 0 || isNaN(numericDis)) {
-            Alert.alert('Value can´t be negative or empty')
-            setDistance('')
-        }
-    }
-    
-    function handleDurationInput() {
-        const numericDur = parseFloat(duration)
-        if (numericDur < 0 || isNaN(numericDur)) {
-            Alert.alert('Value can´t be negative or empty')
-            setDuration('')
-        }
-    }
-
     //select date from calendar
     function dateSelected(day) {
         setVisible(false)
@@ -45,9 +28,25 @@ export default function Add(){
     }
 
     //add work out button 
+    //for distance and duration, some checkups for input values
     //convert units to km if miles, 
     //empty inputs and informs that workout is added to list
     function addWorkOut(){
+
+        const numericDur = parseFloat(duration)
+        const numericDis = parseFloat(distance)
+
+        if (sport == '') {
+            Alert.alert('Select sport')
+        } else if (numericDis < 0 || isNaN(numericDis)) {
+            Alert.alert('Distance can´t be negative or empty')
+            setDistance('')
+        } else if (numericDur < 0 || isNaN(numericDur)) {
+            Alert.alert('Duration can´t be negative or empty')
+            setDuration('')
+        } else if (date == '') {
+            Alert.alert('Select date')
+        } else { 
 
         const distanceInKm = units === 'mi' ? distance * 1.6 : distance
 
@@ -57,6 +56,7 @@ export default function Add(){
         setDuration('')
         setDate('')
         Alert.alert('Workout succesfully added.')
+    }
     }
 
     return(
@@ -91,8 +91,7 @@ export default function Add(){
                 label={distanceLabel} 
                 value={distance} 
                 onChangeText={setDistance}
-                keyboardType="number-pad"
-                onBlur={handleDistanceInput}
+                keyboardType="number-pad"                
                 />
                 <TextInput 
                 style={styles.textInput}
@@ -100,8 +99,7 @@ export default function Add(){
                 label={'duration (min)'} 
                 value={duration} 
                 onChangeText={setDuration}
-                keyboardType="number-pad"
-                onBlur={handleDurationInput}
+                keyboardType="number-pad"                
                 />
             </View>
             <View>

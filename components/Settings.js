@@ -11,18 +11,20 @@ export default function Settings(){
 
     return(
         <View style={styles.container}>
-            <Text>Choose preferred units</Text>
+            <View style={styles.settingsview}>
+            <Text style={styles.settingsHeader} >Choose preferred units</Text>
             <RadioButton.Group onValueChange={newValue => setUnits(newValue)} value={units}>
-                <View>
+                <View style={styles.settingbuttonview}>
                     <RadioButton value='km'/>
                     <Text>Kilometers</Text>
                 </View>
-                <View>
+                <View style={styles.settingbuttonview}>
                     <RadioButton value='mi'/>
                     <Text>Miles</Text>
                 </View>
             </RadioButton.Group>
-            <Text>{units === 'km' ? 'kilometers' : 'miles'} is chosen.</Text>
+            <Text style={styles.settingsText}>{units === 'km' ? 'Kilometers' : 'Miles'} is chosen.</Text>
+            </View>
         </View>
     )
 }

@@ -56,6 +56,27 @@ export const styles = StyleSheet.create({
       padding: 5,
       alignItems: 'center',
       justifyContent: 'space-around',
+    },
+    settingsview: {
+      borderColor: '#394E55',
+      borderWidth: 1,
+      borderTopLeftRadius: 10,
+      borderBottomRightRadius: 10,
+      padding: 30,
+      backgroundColor: '#ebf5f8'
+    },
+    settingsHeader: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      marginBottom: 20
+    },
+    settingbuttonview: {
+      flexDirection: 'row',
+      alignItems: 'center'
+    },
+    settingsText: {
+      fontSize: 20,      
+      marginTop: 20
     }
 
   });
