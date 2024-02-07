@@ -14,13 +14,15 @@ export default function ListWorkOuts(){
 
     return(
         <View>
-            <View style={{marginTop: 30}}>
+            <View>
                 <SumDistances showWorkOut={showWorkOut} units={units}/>
             </View>
+            <View style={styles.flatListstyle}>
             <FlatList
                 data={showWorkOut}
                 renderItem={({item}) => <Item showWorkOut={item} units={units}/>} 
             />
+            </View>
         </View>
     )
 }
@@ -31,9 +33,9 @@ function Item({showWorkOut, units}) {
 
     return(
         <View style={styles.cardstyle}>
-        <Card >
+        <Card style={styles.cards}>
             <Card.Content>
-                <Icon source={showWorkOut.sport}/>
+                <Icon source={showWorkOut.sport} size={20}/>
                 <Text >{showWorkOut.date}</Text>
                 <Text >{'Distance ' + distanceInMi + units}</Text>
                 <Text >{'Duration ' + showWorkOut.duration + ' min'}</Text>
@@ -66,10 +68,10 @@ function SumDistances({showWorkOut, units}) {
     const bikeInMi = units === 'mi' ? bike / 1.6 : bike
 
     return(
-        <View style={{marginTop: 30, flexDirection: 'row'}}>
-            <Chip icon='walk'>{walkInMi + ' ' + units}</Chip>
-            <Chip icon='run-fast'>{runInMi + ' ' + units}</Chip>
-            <Chip icon='bike-fast'>{bikeInMi + ' ' + units}</Chip>
+        <View style={styles.sumDistances}>
+            <Chip icon='walk' mode="outlined">{walkInMi + ' ' + units}</Chip>
+            <Chip icon='run-fast' mode="outlined">{runInMi + ' ' + units}</Chip>
+            <Chip icon='bike-fast' mode="outlined">{bikeInMi + ' ' + units}</Chip>
         </View>
     )
 

@@ -1,5 +1,5 @@
 import { Alert, Modal, SafeAreaView, View } from "react-native"
-import {styles} from '../styles/Styles'
+import {MyTheme, styles} from '../styles/Styles'
 import { SegmentedButtons, TextInput, Text, Button } from "react-native-paper"
 import { useContext, useState } from "react"
 import { AddWorkOutContext, UnitsContext } from "./Context"
@@ -60,28 +60,30 @@ export default function Add(){
     }
 
     return(
-        <SafeAreaView style={styles.container}>            
-            <SegmentedButtons 
-            value={sport} 
-            onValueChange={setSport}
-            buttons={[
-                {
-                    value: 'walk',
-                    label: 'Walk',
-                    icon: 'walk',
-                },
-                {
-                    value: 'run-fast',
-                    label: 'Run',
-                    icon: 'run-fast'
-                },
-                {
-                    value: 'bike-fast',
-                    label: 'Bike',
-                    icon: 'bike-fast'
-                }
-            ]}
-            />            
+        <SafeAreaView style={styles.container}>
+            <View style={styles.segmentButtons}>            
+                <SegmentedButtons            
+                value={sport} 
+                onValueChange={setSport}
+                buttons={[
+                    {
+                        value: 'walk',
+                        label: 'Walk',
+                        icon: 'walk',
+                    },
+                    {
+                        value: 'run-fast',
+                        label: 'Run',
+                        icon: 'run-fast'
+                    },
+                    {
+                        value: 'bike-fast',
+                        label: 'Bike',
+                        icon: 'bike-fast'
+                    }
+                ]}
+                />
+            </View>             
             <View style={styles.textInputView}>
                 <TextInput 
                 style={styles.textInput}

@@ -6,6 +6,7 @@ import ListWorkOuts from './components/ListWorkOuts';
 import Settings from './components/Settings';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AddWorkOutContext, UnitsContext } from './components/Context';
+import { MyTheme } from './styles/Styles';
 
 export default function App() {
 
@@ -16,7 +17,7 @@ export default function App() {
     <SafeAreaProvider>
       <UnitsContext.Provider value={{units, setUnits}}>
         <AddWorkOutContext.Provider value={{workOut, setWorkOut}}>
-          <PaperProvider theme={MD3LightTheme}>
+          <PaperProvider theme={MyTheme}>
             <BottomNav/>
           </PaperProvider>
         </AddWorkOutContext.Provider>
@@ -45,6 +46,7 @@ function BottomNav() {
       navigationState={{ index, routes }}
       onIndexChange={setIndex}
       renderScene={scene}
+      barStyle={{backgroundColor: '#ebf5f8'}}    
     />    
   );
 }

@@ -1,12 +1,17 @@
 import { StatusBar, StyleSheet } from 'react-native';
+import { MD3LightTheme } from 'react-native-paper';
 
 export const styles = StyleSheet.create({
     container: {
-      //marginTop: StatusBar.currentHeight + 5,
+      marginTop: StatusBar.currentHeight + 5,
       flex: 1,
-      backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    segmentButtons: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginHorizontal: 20
     },
     textInputView:{
       margin: 10,
@@ -15,6 +20,7 @@ export const styles = StyleSheet.create({
       marginTop: 10,
       padding: 10,
       width: 200,
+      backgroundColor: '#ebf5f8',
     },
     modal:{
       flex: 1,
@@ -23,18 +29,64 @@ export const styles = StyleSheet.create({
     },
     calendar: { 
       borderWidth: 3,     
-      borderColor: '#f3d1d1',
+      borderColor: '#ebf5f8',
     },
     button: {
       marginTop: 10,
       padding:10,
+      backgroundColor: '#ebf5f8',
+    },
+    flatListstyle: {
+      marginBottom: 200,
+      marginHorizontal: 10
     },
     cardstyle:{
       flex:1,
       padding: 10,
       alignItems: 'stretch',
-      justifyContent: 'center',
+      justifyContent: 'center',      
     },
+    cards: {
+      backgroundColor: '#ebf5f8',
+    },
+    sumDistances: {
+      marginTop: 100,
+      marginBottom: 20, 
+      flexDirection: 'row',
+      padding: 5,
+      alignItems: 'center',
+      justifyContent: 'space-around',
+    }
 
   });
   
+  export const MyTheme = {
+    ...MD3LightTheme,
+    roundness: 2,
+    colors: {
+      ...MD3LightTheme.colors,
+      primary: '#394E55', //btn txt,icon color
+      //onprimary: 'red',
+      //primaryContainer: 'red',
+      //onPrimaryContainer: 'red',
+      //primaryContainer: 'red',
+      //secondary:'red',
+      //onSecondary: 'red',
+      secondaryContainer: '#B1CCD4', //bottomnav active bg, chips bg flat mode, segmentedbtns bg
+      onSecondaryContainer: '#394E55', //selected segmenbtn txt+icon
+      //tertiary: 'red',
+      //onTertiary: 'red',
+      //tertiaryContainer:'red',
+      //onTertiaryContainer: 'red',
+      background: '#e7ecee', //app bg color
+      //onBackground: 'red'
+      surface: '#B1CCD4', //chips bg outlined mode
+      onSurface: '#394E55', // icon colors, inputText txt color, txt color
+      //surfaceVariant: 'red',
+      onSurfaceVariant: '#407180', //inputtxt label, inactive icons, chips txt, inactive radiobutton
+      outline: '#407180', //outlines inputtxt, segmentexbtns, chips
+      //backgroundColor: '#407180'
+      
+      
+    }
+  } 
