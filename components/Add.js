@@ -61,6 +61,7 @@ export default function Add(){
 
     return(
         <SafeAreaView style={styles.container}>
+            <Text style={styles.textHeader}>Add New Workout</Text>
             <View style={styles.segmentButtons}>            
                 <SegmentedButtons            
                 value={sport} 

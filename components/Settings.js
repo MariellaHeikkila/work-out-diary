@@ -11,6 +11,7 @@ export default function Settings(){
 
     return(
         <View style={styles.container}>
+            <Text style={styles.textHeader}>Settings</Text>
             <View style={styles.settingsview}>
             <Text style={styles.settingsHeader} >Choose preferred units</Text>
             <RadioButton.Group onValueChange={newValue => setUnits(newValue)} value={units}>

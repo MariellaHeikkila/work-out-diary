@@ -13,7 +13,10 @@ export default function ListWorkOuts(){
     let showWorkOut = [...WorkOutData, ...workOut]
 
     return(
-        <SafeAreaView>        
+        <SafeAreaView >
+            <View style={styles.listWorkHeader}>
+                <Text style={styles.textHeader}>List of workouts</Text>
+            </View>       
             <View>                
                 <DistanceSum  showWorkOut={showWorkOut} units={units}/>                
             </View>
@@ -37,7 +40,7 @@ function Item({showWorkOut, units}) {
                 <Card.Content>
                     <Icon source={showWorkOut.sport} size={20}/>
                     <Text >{showWorkOut.date}</Text>
-                    <Text >{'Distance ' + distanceInMi + units}</Text>
+                    <Text >{'Distance ' + distanceInMi.toFixed(1) + units}</Text>
                     <Text >{'Duration ' + showWorkOut.duration + ' min'}</Text>
                 </Card.Content>
             </Card>
@@ -70,7 +73,7 @@ function DistanceSum({showWorkOut, units}) {
         <View style={styles.sumDistances}>
             {Object.entries(distanceBySport).map(([sport, totalDistance], index) => (
                 <Chip key={index} icon={sport} mode="outlined" style={styles.sumchips}>
-                    {units === 'mi' ? totalDistance / 1.6 : totalDistance} {units}
+                    {units === 'mi' ? (totalDistance / 1.6).toFixed(1) : totalDistance.toFixed(1)} {units}
                 </Chip>
             ))}       
         </View>

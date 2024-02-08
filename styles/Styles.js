@@ -8,10 +8,22 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    listWorkHeader: {
+      marginTop: 100,
+      alignItems: 'center',      
+    },
+    textHeader: {
+      fontSize: 30,
+      fontWeight: 'bold',
+      marginBottom: 20,
+      borderBottomWidth: 2,
+      borderBottomColor: '#394E55',
+      color: '#394E55'
+    },
     segmentButtons: {
       alignItems: 'center',
       justifyContent: 'center',
-      marginHorizontal: 20
+      marginHorizontal: 20,      
     },
     textInputView:{
       margin: 10,
@@ -37,7 +49,7 @@ export const styles = StyleSheet.create({
       backgroundColor: '#ebf5f8',
     },
     flatListstyle: {
-      height: '70%',      
+      height: '60%',      
       marginHorizontal: 10
     },
     cardstyle:{
@@ -50,7 +62,7 @@ export const styles = StyleSheet.create({
       backgroundColor: '#ebf5f8',
     },
     sumDistances: {
-      marginTop: 100,
+      marginTop: 20,
       marginBottom: 30, 
       flexDirection: 'row',
       padding: 5,
