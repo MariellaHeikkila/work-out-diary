@@ -1,4 +1,4 @@
-import { FlatList, Text, View } from "react-native"
+import { FlatList, SafeAreaView, Text, View } from "react-native"
 import {styles} from '../styles/Styles'
 import { AddWorkOutContext, UnitsContext } from "./Context"
 import { useContext } from "react"
@@ -13,17 +13,17 @@ export default function ListWorkOuts(){
     let showWorkOut = [...WorkOutData, ...workOut]
 
     return(
-        <View>
-            <View>
-                <SumDistances showWorkOut={showWorkOut} units={units}/>
+        <SafeAreaView>        
+            <View>                
+                <DistanceSum  showWorkOut={showWorkOut} units={units}/>                
             </View>
             <View style={styles.flatListstyle}>
-            <FlatList
+            <FlatList            
                 data={showWorkOut}
                 renderItem={({item}) => <Item showWorkOut={item} units={units}/>} 
             />
-            </View>
-        </View>
+            </View>        
+        </SafeAreaView>
     )
 }
 
@@ -45,6 +45,40 @@ function Item({showWorkOut, units}) {
     )
 }
 
+function DistanceSum({showWorkOut, units}) {
+
+    //const distanceInMi = units === 'mi' ? workout.distance / 1.6 : workout.distance
+
+    /**
+     * create an object for distance per sport
+     * loop each workout, if sport already exist add distance to it, if not, add it to next sport
+     * map distancesbysport and create a chip for every sport
+     */
+
+    const distanceBySport = {}
+
+    showWorkOut.forEach(workout => {
+
+        const {sport, distance} = workout
+
+        if(distanceBySport[sport]) {
+            distanceBySport[sport] += parseFloat(distance)
+        } else {
+            distanceBySport[sport] = parseFloat(distance)
+        }
+    })
+    
+    return(
+        <View style={styles.sumDistances}>
+            {Object.entries(distanceBySport).map(([sport, totalDistance], index) => (
+                <Chip key={index} icon={sport} mode="outlined">
+                    {units === 'mi' ? totalDistance / 1.6 : totalDistance} {units}
+                </Chip>
+            ))}       
+        </View>
+    )
+}
+/*
 function SumDistances({showWorkOut, units}) {
 
     let run = 0
@@ -76,3 +110,4 @@ function SumDistances({showWorkOut, units}) {
     )
 
 }
+*/

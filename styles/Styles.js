@@ -36,8 +36,8 @@ export const styles = StyleSheet.create({
       padding:10,
       backgroundColor: '#ebf5f8',
     },
-    flatListstyle: {
-      marginBottom: 200,
+    flatListstyle: {      
+      marginBottom: 330,
       marginHorizontal: 10
     },
     cardstyle:{
