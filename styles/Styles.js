@@ -36,8 +36,8 @@ export const styles = StyleSheet.create({
       padding:10,
       backgroundColor: '#ebf5f8',
     },
-    flatListstyle: {      
-      marginBottom: 330,
+    flatListstyle: {
+      height: '70%',      
       marginHorizontal: 10
     },
     cardstyle:{
@@ -51,11 +51,14 @@ export const styles = StyleSheet.create({
     },
     sumDistances: {
       marginTop: 100,
-      marginBottom: 20, 
+      marginBottom: 30, 
       flexDirection: 'row',
       padding: 5,
       alignItems: 'center',
       justifyContent: 'space-around',
+    },
+    sumchips: {
+      padding: 5
     },
     settingsview: {
       borderColor: '#394E55',
@@ -78,7 +81,6 @@ export const styles = StyleSheet.create({
       fontSize: 20,      
       marginTop: 20
     }
-
   });
   
   export const MyTheme = {
@@ -87,27 +89,12 @@ export const styles = StyleSheet.create({
     colors: {
       ...MD3LightTheme.colors,
       primary: '#394E55', //btn txt,icon color
-      //onprimary: 'red',
-      //primaryContainer: 'red',
-      //onPrimaryContainer: 'red',
-      //primaryContainer: 'red',
-      //secondary:'red',
-      //onSecondary: 'red',
       secondaryContainer: '#B1CCD4', //bottomnav active bg, chips bg flat mode, segmentedbtns bg
       onSecondaryContainer: '#394E55', //selected segmenbtn txt+icon
-      //tertiary: 'red',
-      //onTertiary: 'red',
-      //tertiaryContainer:'red',
-      //onTertiaryContainer: 'red',
       background: '#e7ecee', //app bg color
-      //onBackground: 'red'
       surface: '#B1CCD4', //chips bg outlined mode
       onSurface: '#394E55', // icon colors, inputText txt color, txt color
-      //surfaceVariant: 'red',
       onSurfaceVariant: '#407180', //inputtxt label, inactive icons, chips txt, inactive radiobutton
-      outline: '#407180', //outlines inputtxt, segmentexbtns, chips
-      //backgroundColor: '#407180'
-      
-      
+      outline: '#407180', //outlines inputtxt, segmentexbtns, chips   
     }
   } 

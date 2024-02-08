@@ -1,6 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { BottomNavigation, MD3LightTheme, PaperProvider } from 'react-native-paper';
+import { BottomNavigation, PaperProvider } from 'react-native-paper';
 import Add from './components/Add';
 import ListWorkOuts from './components/ListWorkOuts';
 import Settings from './components/Settings';
